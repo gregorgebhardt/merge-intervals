@@ -10,8 +10,8 @@ func TestInterval_String(t *testing.T) {
 		interval Interval
 		want     string
 	}{
-		{"empty", Interval{}, "[0,0]"},
-		{"start 1 end 2", Interval{1, 2}, "[1,2]"},
+		{"empty", Interval{}, "[0, 0]"},
+		{"start 1 end 2", Interval{1, 2}, "[1, 2]"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
