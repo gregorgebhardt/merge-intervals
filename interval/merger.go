@@ -6,11 +6,13 @@ import (
 	"github.com/gregorgebhardt/redblack"
 )
 
+// IntervalMerger collects intervals in a red-black tree and merges them
 type IntervalMerger struct {
 	tree    redblack.Tree[Interval, Interval]
 	Verbose bool
 }
 
+// Create a new IntervalMerger with the given intervals, duplicate intervals are ignored.
 func NewIntervalMerger(intervals []Interval) (*IntervalMerger, error) {
 	tree, err := redblack.NewTree[Interval, Interval](intervals, true)
 	if err != nil {
@@ -22,6 +24,7 @@ func NewIntervalMerger(intervals []Interval) (*IntervalMerger, error) {
 	}, nil
 }
 
+// Add an interval to the merger
 func (i *IntervalMerger) Add(interval Interval) {
 	err := i.tree.Insert(interval)
 	if i.Verbose {
@@ -36,6 +39,7 @@ func (i *IntervalMerger) Add(interval Interval) {
 	}
 }
 
+// Merge returns a slice of merged intervals. The original intervals are not modified.
 func (i *IntervalMerger) Merge() IntervalSlice {
 	if i.Verbose {
 		fmt.Println(i.tree.String())
@@ -54,6 +58,7 @@ func (i *IntervalMerger) Merge() IntervalSlice {
 	return mergedIntervals
 }
 
+// TreeString returns a string representation of the red-black tree
 func (i *IntervalMerger) TreeString() string {
 	return i.tree.String()
 }
