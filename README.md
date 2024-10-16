@@ -1,7 +1,7 @@
 # Merge Intervals
 
 The merge interval app takes a space-separated list of intervals and merges overlapping intervals. The resulting list of intervals is written to standard output.
-The app is written in Go and uses the module [redblack](github.com/gregorgebhardt/redblack) to store the intervals in a red-black tree.
+The app is written in Go and uses the module [redblack](https://github.com/gregorgebhardt/redblack) to store the intervals in a red-black tree.
 
 ## Requirements to run the code
 
